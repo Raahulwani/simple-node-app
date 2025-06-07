@@ -1,0 +1,14 @@
+{
+  "name": "simple-node-app",
+  "version": "1.0.0",
+  "description": "Simple CI/CD with GitHub Actions",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "echo \"No tests yet\" && exit 0",
+    "build": "cp -r public dist"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
