@@ -2,10 +2,13 @@ name: CI/CD Pipeline
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
 
 jobs:
   build-and-deploy:
+    # Ensure it runs ONLY on push to 'main'
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
 
     steps:
@@ -30,4 +33,6 @@ jobs:
       uses: peaceiris/actions-gh-pages@v4
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./dist 
+        publish_dir: ./dist
+        # Optional, but helps avoid force-pushing messages that retrigger
+        # cname: your-custom-domain.com (if using custom domain)
